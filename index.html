@@ -3,18 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <nav>
-    <ul>
-      <li><a href="#hero"><i></i><span>Generator-Baju</span></a></li>
-<!--       <li><a href="#about"><i class="bi bi-person navicon"></i><span>About</span></a></li> -->
-<!--       <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i><span>Resume</span></a></li> -->
-<!--       <li><a href="#portfolio"><i class="bi bi-images navicon"></i><span>Portfolio</span></a></li> -->
-      <!-- <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i><span>Services</span></a></li> -->
-<!--       <li><a href="#contact"><i class="bi bi-envelope navicon"></i><span>Contact</span></a></li> -->
-    </ul>
-  </nav>
-  
   <title>Isometric 3D Prompt Generator</title>
   <style>
     body {
@@ -205,6 +193,22 @@
       const prompt = `Isometric 3D illustration of a ${object}, made of ${style}, viewed from a ${viewed}, with ${lighting} lighting, ${color} color scheme, image ratio ${ratio}, ${background}, ${render}, highly detailed, sharp shadows, clean lines, professional rendering.`;
 
       document.getElementById('result').innerText = prompt;
+
+      const jsonPrompt = {
+        object,
+        style,
+        lighting,
+        color,
+        ratio,
+        viewed,
+        background,
+        render,
+        prompt
+      };
+
+      const pre = document.createElement('pre');
+      pre.innerText = JSON.stringify(jsonPrompt, null, 2);
+      document.getElementById('result').appendChild(pre);
 
       
     }
