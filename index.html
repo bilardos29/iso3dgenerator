@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Isometric 3D Prompt Generator</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f0f0f0;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    select, button {
+      padding: 10px;
+      margin: 10px 0;
+      width: 100%;
+      font-size: 1rem;
+    }
+    #result {
+      background: #fff;
+      padding: 15px;
+      border: 1px solid #ccc;
+      margin-top: 15px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h2>Isometric 3D Prompt Generator</h2>
+
+  <label>Object or Scene</label>
+  <select id="object">
+    <option value="futuristic city">Futuristic City</option>
+    <option value="cozy bedroom">Cozy Bedroom</option>
+    <option value="robot factory">Robot Factory</option>
+    <option value="coffee shop interior">Coffee Shop Interior</option>
+    <option value="medieval tavern">Medieval Tavern</option>
+  </select>
+
+  <label>Material or Style</label>
+  <select id="style">
+    <option value="voxel art">Voxel Art</option>
+    <option value="low poly">Low Poly</option>
+    <option value="clay">Clay</option>
+    <option value="cyberpunk">Cyberpunk</option>
+    <option value="pixelated">Pixelated</option>
+  </select>
+
+  <label>Lighting</label>
+  <select id="lighting">
+    <option value="soft ambient">Soft Ambient</option>
+    <option value="sunset">Sunset</option>
+    <option value="neon glow">Neon Glow</option>
+    <option value="moody">Moody</option>
+    <option value="dramatic">Dramatic</option>
+  </select>
+
+  <label>Color Palette</label>
+  <select id="color">
+    <option value="pastel">Pastel</option>
+    <option value="vibrant">Vibrant</option>
+    <option value="muted">Muted</option>
+    <option value="monochrome">Monochrome</option>
+    <option value="dark mode">Dark Mode</option>
+  </select>
+
+  <button onclick="generatePrompt()">Generate Prompt</button>
+
+  <div id="result"></div>
+
+  <script>
+    function generatePrompt() {
+      const object = document.getElementById('object').value;
+      const style = document.getElementById('style').value;
+      const lighting = document.getElementById('lighting').value;
+      const color = document.getElementById('color').value;
+
+      const prompt = `Isometric 3D illustration of a ${object}, made of ${style}, viewed from an isometric angle, with ${lighting} lighting, ${color} color scheme, highly detailed, sharp shadows, clean lines, professional rendering.`;
+
+      document.getElementById('result').innerText = prompt;
+    }
+  </script>
+</body>
+</html>
