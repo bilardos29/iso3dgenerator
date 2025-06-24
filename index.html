@@ -25,6 +25,14 @@
       margin-top: 15px;
       white-space: pre-wrap;
     }
+    #preview {
+      margin-top: 15px;
+      text-align: center;
+    }
+    #preview img {
+      max-width: 100%;
+      border: 1px solid #ccc;
+    }
   </style>
 </head>
 <body>
@@ -66,9 +74,29 @@
     <option value="dark mode">Dark Mode</option>
   </select>
 
+  <label>Image Ratio</label>
+  <select id="ratio">
+    <option value="16:9">16:9</option>
+    <option value="4:5">4:5</option>
+    <option value="1:1">1:1</option>
+    <option value="2:3">2:3</option>
+    <option value="9:16">9:16</option>
+  </select>
+
+  <label>Background</label>
+  <select id="background">
+    <option value="white background">White Background</option>
+    <option value="transparent background">Transparent Background</option>
+    <option value="gradient background">Gradient Background</option>
+    <option value="dark background">Dark Background</option>
+    <option value="scenic background">Scenic Background</option>
+  </select>
+
   <button onclick="generatePrompt()">Generate Prompt</button>
 
   <div id="result"></div>
+
+  <div id="preview"></div>
 
   <script>
     function generatePrompt() {
@@ -76,10 +104,16 @@
       const style = document.getElementById('style').value;
       const lighting = document.getElementById('lighting').value;
       const color = document.getElementById('color').value;
+      const ratio = document.getElementById('ratio').value;
+      const background = document.getElementById('background').value;
 
-      const prompt = `Isometric 3D illustration of a ${object}, made of ${style}, viewed from an isometric angle, with ${lighting} lighting, ${color} color scheme, highly detailed, sharp shadows, clean lines, professional rendering.`;
+      const prompt = `Isometric 3D illustration of a ${object}, made of ${style}, viewed from an isometric angle, with ${lighting} lighting, ${color} color scheme, ${background}, image ratio ${ratio}, highly detailed, sharp shadows, clean lines, professional rendering.`;
 
       document.getElementById('result').innerText = prompt;
+
+      const encodedPrompt = encodeURIComponent(prompt);
+      const dummyImageUrl = `https://dummyimage.com/600x400/cccccc/000000&text=${encodedPrompt}`;
+      document.getElementById('preview').innerHTML = `<img src="${dummyImageUrl}" alt="Prompt preview" />`;
     }
   </script>
 </body>
