@@ -84,9 +84,18 @@
   <option value="spaceport" data-category="urban">Spaceport</option>
 </select>
 
-  <label>Material or Style</label>
-  <select id="style">
-    <option value="voxel art">Voxel Art</option>
+  <label>Rendering Type</label>
+<select id="render">
+  <option value="realistic">Realistic</option>
+  <option value="animated">Animated</option>
+  <option value="natural look">Natural Look</option>
+  <option value="cinematic">Cinematic</option>
+  <option value="illustrative">Illustrative</option>
+</select>
+
+<label>Material or Style</label>
+<select id="style">
+  <option value="voxel art">Voxel Art</option>
     <option value="low poly">Low Poly</option>
     <option value="clay">Clay</option>
     <option value="cyberpunk">Cyberpunk</option>
@@ -179,8 +188,9 @@
       const ratio = document.getElementById('ratio').value;
       const viewed = document.getElementById('viewed').value;
       const background = document.getElementById('background').value;
+      const render = document.getElementById('render').value;
 
-      const prompt = `Isometric 3D illustration of a ${object}, made of ${style}, viewed from a ${viewed}, with ${lighting} lighting, ${color} color scheme, image ratio ${ratio}, ${background}, highly detailed, sharp shadows, clean lines, professional rendering.`;
+      const prompt = `Isometric 3D illustration of a ${object}, made of ${style}, viewed from a ${viewed}, with ${lighting} lighting, ${color} color scheme, image ratio ${ratio}, ${background}, ${render}, highly detailed, sharp shadows, clean lines, professional rendering.`;
 
       document.getElementById('result').innerText = prompt;
 
