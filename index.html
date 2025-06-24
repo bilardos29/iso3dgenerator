@@ -178,13 +178,20 @@
     <option value="9:16">9:16</option>
   </select>
 
-  <label>Background</label>
-  <select id="background">
-    <option value="white background">White Background</option>
-    <option value="transparent background">Transparent Background</option>
-    <option value="gradient background">Gradient Background</option>
-    <option value="dark background">Dark Background</option>
-    <option value="scenic background">Scenic Background</option>
+  
+
+  <label>Viewed</label>
+  <select id="viewed">
+    <option value="isometric angle">Isometric Angle</option>
+    <option value="top-down view">Top-Down View</option>
+    <option value="front view">Front View</option>
+    <option value="side view">Side View</option>
+    <option value="bird's eye view">Bird's Eye View</option>
+    <option value="perspective view">Perspective View</option>
+    <option value="cutaway view">Cutaway View</option>
+    <option value="exploded view">Exploded View</option>
+    <option value="angled view">Angled View</option>
+    <option value="diorama view">Diorama View</option>
   </select>
 
   <button onclick="generatePrompt()">Generate Prompt</button>
@@ -201,8 +208,9 @@
       const color = document.getElementById('color').value;
       const ratio = document.getElementById('ratio').value;
       const background = document.getElementById('background').value;
+      const viewed = document.getElementById('viewed').value;
 
-      const prompt = `Isometric 3D illustration of a ${object}, made of ${style}, viewed from an isometric angle, with ${lighting} lighting, ${color} color scheme, ${background}, image ratio ${ratio}, highly detailed, sharp shadows, clean lines, professional rendering.`;
+      const prompt = `Isometric 3D illustration of a ${object}, made of ${style}, viewed from an isometric angle, viewed from a ${viewed}, with ${lighting} lighting, ${color} color scheme, ${background}, image ratio ${ratio}, highly detailed, sharp shadows, clean lines, professional rendering.`;
 
       document.getElementById('result').innerText = prompt;
 
