@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Isometric Diorama Prompt Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      max-width: 700px;
+      margin: auto;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.3rem;
+    }
+    button {
+      margin-top: 1.5rem;
+      padding: 0.7rem 1.5rem;
+      background: #2d89ef;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    textarea {
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Isometric Diorama Prompt Generator</h1>
+
+  <label for="city">City Name</label>
+  <input type="text" id="city" placeholder="e.g. Tokyo">
+
+  <label for="lighting">Lighting</label>
+  <select id="lighting">
+    <option value="cinematic lighting">Cinematic</option>
+    <option value="golden hour lighting">Golden Hour</option>
+    <option value="soft studio lighting">Soft Studio</option>
+    <option value="dramatic lighting">Dramatic</option>
+  </select>
+
+  <label for="color">Color Style</label>
+  <select id="color">
+    <option value="vibrant yet natural colors">Vibrant Natural</option>
+    <option value="soft pastel colors">Soft Pastel</option>
+    <option value="realistic color palette">Realistic</option>
+    <option value="moody warm tones">Moody Warm</option>
+  </select>
+
+  <label for="extras">Additional Details</label>
+  <select id="extras">
+    <option value="vehicles and people for realism">Vehicles & People</option>
+    <option value="miniature trees and street signs">Miniature Trees & Signs</option>
+    <option value="bustling crowd in the streets">Bustling Crowd</option>
+  </select>
+
+  <button onclick="generatePrompt()">Generate Prompt</button>
+
+  <label for="output">Prompt Output</label>
+  <textarea id="output" readonly></textarea>
+
+  <script>
+    function generatePrompt() {
+      const city = document.getElementById("city").value || "[City]";
+      const lighting = document.getElementById("lighting").value;
+      const color = document.getElementById("color").value;
+      const extras = document.getElementById("extras").value;
+
+      const prompt = `1:1 ultra-realistic poster featuring a detailed 3D square isometric diorama of the city of ${city}, showcasing its iconic landmarks as a miniature model. The scene should depict the city placed atop a textured terrain with clearly exposed layers of soil, water, and rock beneath a grass-covered surface. Use ${lighting} to emphasize depth and realism, along with a subtle depth of field and ${color}. The visual should include ${extras}. Enhance the overall visual appeal to make the diorama look like a meticulously crafted physical display. Ensure high detail in both the miniature city and the geological cross-section to create a striking and immersive effect. Use white background.`;
+
+      document.getElementById("output").value = prompt;
+    }
+  </script>
+</body>
+</html>
